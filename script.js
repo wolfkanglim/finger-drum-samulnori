@@ -48,6 +48,10 @@ pads.forEach((pad) => {
 })
 var MEDIA_ELEMENT_NODES = new WeakMap();
 function playSound(pad){
+    if (audioCtx.state === "suspended") {
+    audioCtx.resume();
+    audioCtx.state = "running";
+  }
     let padSound = document.getElementById(pad.dataset.sound);
     padSound.crossOrigin = "anonymous";
     padSound.currentTime = 0;
