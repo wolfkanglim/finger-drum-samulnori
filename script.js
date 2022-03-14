@@ -46,7 +46,7 @@ const pads = document.querySelectorAll('.pad');
 pads.forEach((pad) => {
     pad.addEventListener('mousedown', () => playSound(pad));
 })
-
+var MEDIA_ELEMENT_NODES = new WeakMap();
 function playSound(pad){
     let padSound = document.getElementById(pad.dataset.sound);
     padSound.crossOrigin = "anonymous";
@@ -57,10 +57,12 @@ function playSound(pad){
     pad.addEventListener('mouseup', () => {
         pad.classList.remove('playing');
     })
-    if(audioSourceNode){
-        audioSourceNode.disconnect();
-      }          
-    audioSource = audioCtx.createMediaElementSource(padSound);
+    if (MEDIA_ELEMENT_NODES.has(padSound)) {
+        audioSource = MEDIA_ELEMENT_NODES.get(padSound);
+      } else {
+        audioSource = audioCtx.createMediaElementSource(padSound);
+        MEDIA_ELEMENT_NODES.set(padSound, audioSource);
+      }
     analyser = audioCtx.createAnalyser();
     analyser.fftSize = 256;
 
