@@ -145,4 +145,4 @@ function playSound(pad){
     drawVisualizerCircle();
     setupEvents();
 }
-playSound()
+
