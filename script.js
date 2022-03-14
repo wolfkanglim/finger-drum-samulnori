@@ -40,7 +40,7 @@ function drawImages(){
 }
 drawImages();
 
-getAudioContext().resume();
+
 ////pads  pad sound//////
 const pads = document.querySelectorAll('.pad');
 pads.forEach((pad) => {
@@ -49,7 +49,7 @@ pads.forEach((pad) => {
 
 function playSound(pad){
     let padSound = document.getElementById(pad.dataset.sound);
-    
+    padSound.crossOrigin = "anonymous";
     padSound.currentTime = 0;
     padSound.volume = 0.5;
     padSound.play();
@@ -57,7 +57,7 @@ function playSound(pad){
     pad.addEventListener('mouseup', () => {
         pad.classList.remove('playing');
     })
-    
+    getAudioContext().resume();
     audioSource = audioCtx.createMediaElementSource(padSound);
     analyser = audioCtx.createAnalyser();
     analyser.fftSize = 256;
