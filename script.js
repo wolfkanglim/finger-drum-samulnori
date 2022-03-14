@@ -40,6 +40,7 @@ function drawImages(){
 }
 drawImages();
 
+getAudioContext().resume();
 ////pads  pad sound//////
 const pads = document.querySelectorAll('.pad');
 pads.forEach((pad) => {
