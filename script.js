@@ -6,7 +6,7 @@ const bass = document.getElementById('bass');
 const mid = document.getElementById('mid');
 const treb = document.getElementById('treb');
 
-let audioSource;
+var audioSource;
 let analyser;
 const gainNode = new GainNode(audioCtx, {gain:volume.value});
 const bassEQ = new BiquadFilterNode(audioCtx, {
