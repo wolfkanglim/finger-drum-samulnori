@@ -57,7 +57,9 @@ function playSound(pad){
     pad.addEventListener('mouseup', () => {
         pad.classList.remove('playing');
     })
-    
+    if(audioSourceNode){
+        audioSourceNode.disconnect();
+      }          
     audioSource = audioCtx.createMediaElementSource(padSound);
     analyser = audioCtx.createAnalyser();
     analyser.fftSize = 256;
