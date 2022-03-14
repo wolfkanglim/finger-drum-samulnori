@@ -6,7 +6,7 @@ const bass = document.getElementById('bass');
 const mid = document.getElementById('mid');
 const treb = document.getElementById('treb');
 
-var audioSource;
+let audioSource;
 let analyser;
 const gainNode = new GainNode(audioCtx, {gain:volume.value});
 const bassEQ = new BiquadFilterNode(audioCtx, {
@@ -40,17 +40,16 @@ function drawImages(){
 }
 drawImages();
 
-
 ////pads  pad sound//////
 const pads = document.querySelectorAll('.pad');
 pads.forEach((pad) => {
     pad.addEventListener('mousedown', () => playSound(pad));
 })
+
 var MEDIA_ELEMENT_NODES = new WeakMap();
+
 function playSound(pad){
-  
     let padSound = document.getElementById(pad.dataset.sound);
-    padSound.crossOrigin = "anonymous";
     padSound.currentTime = 0;
     padSound.volume = 0.5;
     padSound.play();
@@ -58,12 +57,14 @@ function playSound(pad){
     pad.addEventListener('mouseup', () => {
         pad.classList.remove('playing');
     })
+    
     if (MEDIA_ELEMENT_NODES.has(padSound)) {
         audioSource = MEDIA_ELEMENT_NODES.get(padSound);
       } else {
         audioSource = audioCtx.createMediaElementSource(padSound);
         MEDIA_ELEMENT_NODES.set(padSound, audioSource);
       }
+
     analyser = audioCtx.createAnalyser();
     analyser.fftSize = 256;
 
@@ -82,7 +83,10 @@ function playSound(pad){
     let barHeight;
 
     function setupEvents(e){
-       
+        if (audioCtx.state === "suspended") {
+            audioCtx.resume();
+            audioCtx.state = "running";
+          }
             volume.addEventListener('input', e => {
             const value = parseFloat(e.target.value);
             gainNode.gain.setTargetAtTime(value, audioCtx.currentTime, .01);
@@ -152,4 +156,4 @@ function playSound(pad){
     drawVisualizerCircle();
     setupEvents();
 }
-
+//playSound()
