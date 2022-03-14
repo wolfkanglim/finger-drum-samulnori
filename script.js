@@ -47,7 +47,8 @@ pads.forEach(pad => {
 })
 
 function playSound(pad){
-    let padSound = document.getElementById(pad.dataset.sound);
+    //let padSound = document.getElementById(pad.dataset.sound);
+    let padSound = document.getElementById('jing1);
     padSound.currentTime = 0;
     padSound.volume = 0.5;
     padSound.play();
