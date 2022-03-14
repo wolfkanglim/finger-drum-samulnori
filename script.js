@@ -85,10 +85,7 @@ function playSound(pad){
     let barHeight;
 
     function setupEvents(e){
-        if (audioCtx.state === "suspended") {
-    audioCtx.resume();
-    audioCtx.state = "running";
-  }
+       
             volume.addEventListener('input', e => {
             const value = parseFloat(e.target.value);
             gainNode.gain.setTargetAtTime(value, audioCtx.currentTime, .01);
