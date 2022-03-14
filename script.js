@@ -42,13 +42,12 @@ drawImages();
 
 ////pads  pad sound//////
 const pads = document.querySelectorAll('.pad');
-pads.forEach(pad => {
+pads.forEach((pad) => {
     pad.addEventListener('mousedown', () => playSound(pad));
 })
 
 function playSound(pad){
-    //let padSound = document.getElementById(pad.dataset.sound);
-    let padSound = document.getElementById('jing1);
+    let padSound = document.getElementById(pad.dataset.sound);
     padSound.currentTime = 0;
     padSound.volume = 0.5;
     padSound.play();
