@@ -1,3 +1,7 @@
+/////man at work...
+audio wav files are too big, change to mp3 file or less 1MB
+then upload to repo switch to raw file
+edit src at index. Mar 14 20222/////
 # finger-drum-samulnori
 Samulnori  is playing  four Korean traditional instrumes togrther.
 Finger Drum Samulnori app is designed for fingerdrummiing pad. this is prototype. basic pad sound.
