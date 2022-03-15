@@ -49,6 +49,8 @@ function drawImages(){
     ctx.fillText('사물놀이', 8, 70);
     ctx.font = '14px Arial';
     ctx.fillText('Korean Traditional Percussion Instruments', 5, 12);
+      ctx.font = '10px Arial';
+    ctx.fillText('WONDROUS EAST  2022  WolfkangLim', 15, canvas.height -2);
 }
 drawImages();
 
