@@ -81,7 +81,10 @@ function playSound(pad){
         MEDIA_ELEMENT_NODES.set(padSound, audioSource);
       }   
      //audioSource = audioCtx.createMediaElementSource(padSound);
-    audioSource.crossOrigin = "anonymous";
+    //audioSource.crossOrigin = "anonymous";
+    if(analyser){
+        analyser.disconnect();
+      }     
     analyser = audioCtx.createAnalyser();
     analyser.fftSize = 256;
 
