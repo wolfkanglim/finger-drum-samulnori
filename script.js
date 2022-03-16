@@ -60,8 +60,6 @@ pads.forEach((pad) => {
     pad.addEventListener('mousedown', () => playSound(pad));
 })
 
-var MEDIA_ELEMENT_NODES = new WeakMap();
-
 function playSound(pad){
      if (audioCtx.state === "suspended") {
             audioCtx.resume();
@@ -75,13 +73,8 @@ function playSound(pad){
     pad.addEventListener('mouseup', () => {
         pad.classList.remove('playing');
     })
-    
-    if (MEDIA_ELEMENT_NODES.has(padSound)) {
-        audioSource = MEDIA_ELEMENT_NODES.get(padSound);
-      } else {
-        audioSource = audioCtx.createMediaElementSource(padSound);
-        MEDIA_ELEMENT_NODES.set(padSound, audioSource);
-      }
+      
+     audioSource = audioCtx.createMediaElementSource(padSound);
     audioSource.crossOrigin = "anonymous";
     analyser = audioCtx.createAnalyser();
     analyser.fftSize = 256;
