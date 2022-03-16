@@ -68,7 +68,7 @@ function playSound(pad){
           }
     let padSound = document.getElementById(pad.dataset.sound);
     padSound.currentTime = 0;
-    padSound.volume = 0.2;
+    padSound.volume = 0.5;
     padSound.play();
     pad.classList.add('playing');
     pad.addEventListener('mouseup', () => {
