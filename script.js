@@ -71,9 +71,12 @@ function playSound(pad){
     padSound.volume = 0.5;
     padSound.play();
     pad.classList.add('playing');
-    pad.addEventListener('mouseup', () => {
+    padSound.onended = function(){
         pad.classList.remove('playing');
-    })
+    }
+//     pad.addEventListener('mouseup', () => {
+//         pad.classList.remove('playing');
+//     })
     if (MEDIA_ELEMENT_NODES.has(padSound)) {
         audioSource = MEDIA_ELEMENT_NODES.get(padSound);
       } else {
