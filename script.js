@@ -67,6 +67,7 @@ function playSound(pad){
             audioCtx.state = "running";
           }
     let padSound = document.getElementById(pad.dataset.sound);
+    padSound.preload = "auto";
     padSound.currentTime = 0;
     padSound.volume = 0.5;
     padSound.play();
