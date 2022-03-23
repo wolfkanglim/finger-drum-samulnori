@@ -1,3 +1,7 @@
+:root {
+  --vh: 1vh;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
