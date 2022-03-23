@@ -58,6 +58,7 @@ drawImages();
 const pads = document.querySelectorAll('.pad');
 pads.forEach((pad) => {
     pad.addEventListener('mousedown', () => playSound(pad));
+    pad.addEventListener('touchstart', () => playSound(pad));
 })
 
 var MEDIA_ELEMENT_NODES = new WeakMap();
