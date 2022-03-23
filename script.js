@@ -54,6 +54,17 @@ function drawImages(){
 }
 drawImages();
 
+
+/////set viewport height//////
+function setViewportHeight() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty{'--vh', `${vh}px`};
+}
+setVierportHeight();
+window.addEventListener('resize', () => {
+    setTimeout(setViewportHeight, 100)
+})
+
 ////pads  pad sound//////
 const pads = document.querySelectorAll('.pad');
 pads.forEach((pad) => {
