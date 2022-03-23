@@ -7,6 +7,13 @@ body {
   background-color: #fff;
   height: 100vh;
   height: calc(var{--vh, 1vh} * 100); 
+   min-height: 100vh;
+    min-height: fill-available;
+    min-height: -webkit-fill-available;
+}
+html {
+    height: fill-available;
+    height: -webkit-fill-available;
 }
 p,
 span {
