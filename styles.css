@@ -6,6 +6,7 @@
 body {
   background-color: #fff;
   height: 100vh;
+  height: calc(var{--vh, 1vh} * 100); 
 }
 p,
 span {
