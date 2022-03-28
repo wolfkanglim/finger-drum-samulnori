@@ -76,7 +76,7 @@ pads.forEach((pad) => {
     pad.addEventListener('touchstart', function(e){
         e.preventDefault();
         e.stopPropagation();
-        playSound(pad));
+        playSound(pad);
     })
 }
 var MEDIA_ELEMENT_NODES = new WeakMap();
