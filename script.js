@@ -68,7 +68,9 @@ window.addEventListener('resize', () => {
 ////pads  pad sound//////
 const pads = document.querySelectorAll('.pad');
 pads.forEach((pad) => {
-    pad.addEventListener('mousedown', () => playSound(pad));
+    pad.addEventListener('mousedown', (e) => playSound(pad));
+    e.preventDefault();
+    e.stopPropagation();
     pad.addEventListener('touchstart', () => playSound(pad));
 })
 
