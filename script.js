@@ -73,9 +73,12 @@ pads.forEach((pad) => {
        e.stopPropagation();
         playSound(pad);
     })
-    pad.addEventListener('touchstart', () => playSound(pad));
-})
-
+    pad.addEventListener('touchstart', function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        playSound(pad));
+    })
+}
 var MEDIA_ELEMENT_NODES = new WeakMap();
 function playSound(pad){
      if (audioCtx.state === "suspended") {
