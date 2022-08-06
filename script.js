@@ -61,9 +61,11 @@ function setViewportHeight() {
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 }
 setViewportHeight();
-window.addEventListener('resize', () => {
-    setTimeout(setViewportHeight, 100)
+window.addEventListener('resize', setViewportHeight)
 })
+window.addEventListener('orientatioinchange', setViewportHeight);
+    
+
 
 ////pads  pad sound//////
 const pads = document.querySelectorAll('.pad');
