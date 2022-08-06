@@ -29,6 +29,7 @@ span {
 #canvas {
   display: block;
   height: 16.65vh;
+  min-height: calc(var(--vh) * 100);
   width: 100%;
   max-width: 480px;
   border: 2px solid rgb(12, 12, 12);
