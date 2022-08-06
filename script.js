@@ -62,8 +62,8 @@ function setViewportHeight() {
 }
 setViewportHeight();
 window.addEventListener('resize', setViewportHeight)
-})
-window.addEventListener('orientatioinchange', setViewportHeight);
+
+window.addEventListener('orientationchange', setViewportHeight);
     
 
 
